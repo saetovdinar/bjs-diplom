@@ -2,7 +2,7 @@
 
 
 const userFormObj = new UserForm();
-
+//realization login form
 userFormObj.loginFormCallback = function(data) {
     ApiConnector.login(data, (log) => {
         if(log.success) {
@@ -12,7 +12,7 @@ userFormObj.loginFormCallback = function(data) {
         }
     });
 }
-
+//realization register form
 userFormObj.registerFormCallback = function(data) {
     ApiConnector.register(data, (log) => {
         if(log.success) {

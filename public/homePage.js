@@ -1,5 +1,6 @@
 'use strict' 
 
+//realization logout button
 const logoutBTN = new LogoutButton();
 
 logoutBTN.action = function() {
@@ -9,13 +10,13 @@ logoutBTN.action = function() {
         }
     });
 }
-
+//realization profile info button
 ApiConnector.current((log) => {
     if(log.success) {
         ProfileWidget.showProfile(log.data);
     }
 });
-
+//realization rate board info 
 const ratesBoard= new RatesBoard();
 
 let intervalTimer = setInterval(ApiConnector.getStocks((data) => {
@@ -25,7 +26,7 @@ let intervalTimer = setInterval(ApiConnector.getStocks((data) => {
     }
 }), 60000)
 
-
+//realization refill  
 const moneyManag = new MoneyManager();
 
 moneyManag.addMoneyCallback = function(data) {
@@ -39,6 +40,8 @@ moneyManag.addMoneyCallback = function(data) {
         }
     });
 }
+
+//realization conversion money 
 moneyManag.conversionMoneyCallback = function(data) {
     ApiConnector.convertMoney(data, (log) => {
         if(log.success) {
@@ -49,7 +52,7 @@ moneyManag.conversionMoneyCallback = function(data) {
         }
     });
 };
-
+//realization money sending 
 moneyManag.sendMoneyCallback = function(data) {
     ApiConnector.transferMoney(data, (log) => {
 
@@ -61,7 +64,7 @@ moneyManag.sendMoneyCallback = function(data) {
         }
     });
 };
-
+//realization favorite widget 
 const favWidgetObj = new FavoritesWidget();
 
 ApiConnector.getFavorites((log) => {
@@ -73,7 +76,7 @@ ApiConnector.getFavorites((log) => {
     }
 });
 
-
+//realization add to favorite users 
 favWidgetObj.addUserCallback = function(data) {
     ApiConnector.addUserToFavorites(data, (log) => {
         if(log.success) {
@@ -86,7 +89,7 @@ favWidgetObj.addUserCallback = function(data) {
         }
     });
 };
-
+//realization remove from favorite 
 favWidgetObj.removeUserCallback = function(data) {
     ApiConnector.removeUserFromFavorites(data, (log) => {
         if(log.success) {
