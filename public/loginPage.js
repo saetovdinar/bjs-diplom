@@ -8,7 +8,7 @@ userFormObj.loginFormCallback = function(data) {
         if(log.success) {
             location.reload();
         } else {
-            console.log(log.error);
+            userFormObj.setLoginErrorMessage(log.error);
         }
     });
 }
@@ -18,7 +18,7 @@ userFormObj.registerFormCallback = function(data) {
         if(log.success) {
             location.reload();
         } else {
-            console.log(log.error);
+            userFormObj.setRegisterErrorMessage(log.error);
         }
     });
 }

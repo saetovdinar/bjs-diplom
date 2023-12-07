@@ -19,12 +19,17 @@ ApiConnector.current((log) => {
 //realization rate board info 
 const ratesBoard= new RatesBoard();
 
-let intervalTimer = setInterval(ApiConnector.getStocks((data) => {
-    if(data.success) {
-        ratesBoard.clearTable();
-        ratesBoard.fillTable(data.data);
-    }
-}), 60000)
+let getStock = () => {
+    ApiConnector.getStocks((data) => {
+        if(data.success) {
+            ratesBoard.clearTable();
+            ratesBoard.fillTable(data.data);
+            console.log(data)
+        }
+    });
+};
+getStock();
+setInterval(getStock, 60000)
 
 //realization refill  
 const moneyManag = new MoneyManager();
@@ -83,9 +88,9 @@ favWidgetObj.addUserCallback = function(data) {
             favWidgetObj.clearTable();
             favWidgetObj.fillTable(log.data);
             moneyManag.updateUsersList(log.data);
-            moneyManag.setMessage(log.success, "Success");
+            favWidgetObj.setMessage(log.success, "Success");
         }  else {
-            moneyManag.setMessage(log.success, log.error);
+            favWidgetObj.setMessage(log.success, log.error);
         }
     });
 };
@@ -96,9 +101,9 @@ favWidgetObj.removeUserCallback = function(data) {
             favWidgetObj.clearTable();
             favWidgetObj.fillTable(log.data);
             moneyManag.updateUsersList(log.data);
-            moneyManag.setMessage(log.success, "Success");
+            favWidgetObj.setMessage(log.success, "Success");
         }  else {
-            moneyManag.setMessage(log.success, log.error);
+            favWidgetObj.setMessage(log.success, log.error);
         }
     });
 };

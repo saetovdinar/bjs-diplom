@@ -60,6 +60,42 @@
         "EUR": 600,
         "NTC": 90000
       }
+    },
+    {
+      "created_at": "2023-12-07T12:50:06.540Z",
+      "login": "gfj",
+      "password": "fghj",
+      "id": 6,
+      "balance": {
+        "RUB": 0,
+        "USD": 0,
+        "EUR": 0,
+        "NTC": 0
+      }
+    },
+    {
+      "created_at": "2023-12-07T12:50:19.668Z",
+      "login": "fghj",
+      "password": "fghj",
+      "id": 7,
+      "balance": {
+        "RUB": 0,
+        "USD": 0,
+        "EUR": 0,
+        "NTC": 0
+      }
+    },
+    {
+      "created_at": "2023-12-07T12:51:30.164Z",
+      "login": "dfh",
+      "password": "dgfh",
+      "id": 8,
+      "balance": {
+        "RUB": 0,
+        "USD": 0,
+        "EUR": 0,
+        "NTC": 0
+      }
     }
   ],
   "favorites": {
@@ -75,6 +111,7 @@
       "1": "Важный пацан",
       "3": "Дедуля",
       "4": "Галя"
-    }
+    },
+    "8": {}
   }
 }
